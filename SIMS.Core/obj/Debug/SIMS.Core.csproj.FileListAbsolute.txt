@@ -1,0 +1,17 @@
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\SIMS.Core.dll.config
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\SIMS.Core.dll
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\SIMS.Core.pdb
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\AutoMapper.dll
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\EntityFramework.dll
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\System.ValueTuple.dll
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\AutoMapper.pdb
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\AutoMapper.xml
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\EntityFramework.xml
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\bin\Debug\System.ValueTuple.xml
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\obj\Debug\SIMS.Core.csprojAssemblyReference.cache
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\obj\Debug\SIMS.Core.csproj.CoreCompileInputs.cache
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\obj\Debug\SIMS.Core.csproj.CopyComplete
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\obj\Debug\SIMS.Core.dll
+E:\netsoftbd\SIMS App Project\Student_Information_Management_App\SIMS.Core\obj\Debug\SIMS.Core.pdb

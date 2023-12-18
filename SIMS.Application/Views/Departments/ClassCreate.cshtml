@@ -1,0 +1,66 @@
+﻿@model SIMS.Core.ViewModel.SetupModule.DepartmentViewModel
+
+
+<div class="row">
+    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Class Setup</div>
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(expression: model => model.Code, labelText: "Class Code*", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(expression: model => model.Code, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(expression: model => model.Name, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(expression: model => model.Name, labelText: "Class Name*", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(expression: model => model.Name, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(expression: model => model.Name, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(expression: model => model.IsActive, labelText: "IsActive", htmlAttributes: new { @class = "control-label" })
+                        <div class="checkbox">
+                            @Html.EditorFor(expression: model => model.IsActive)
+                            @Html.ValidationMessageFor(expression: model => model.IsActive, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.HiddenFor(expression: c => c.Id)
+                        <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                    </div>
+
+
+                }
+
+
+            </div>
+        </div>
+
+        <div class="box box-primary">
+            <div class="box-header">Class List</div>
+            <div class="box-body">
+                <table id="classesTable" class="table table-bordered table-hover display">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/SetupModule/ClassCreate.js"></script>
+
+}

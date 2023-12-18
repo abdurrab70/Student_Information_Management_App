@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.34112.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Core", "04 Core", "{637701EE-2FEC-4A76-9B68-BC62C06F4C71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Persistance", "03 Persistance", "{134FAAEF-ABF2-4D5B-81D6-3DA2E56EDF1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Application", "01 Application", "{C30E2367-95FD-44AB-B98D-380EB0692565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMS.Core", "SIMS.Core\SIMS.Core.csproj", "{83E556F3-4FDD-4C60-A105-7044F20D8962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMS.Persistance", "SIMS.Persistance\SIMS.Persistance.csproj", "{F68433A9-917E-4DFE-AC27-2E50ACC04FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMS.Application", "SIMS.Application\SIMS.Application.csproj", "{B95FD221-8010-4232-8427-457403A02471}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 ServiceManager", "02 ServiceManager", "{5EF70A3C-B5EB-499E-BA18-F37C205EFD7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMS.ServiceManager", "SIMS.ServiceManager\SIMS.ServiceManager.csproj", "{B5B9DE94-D3FF-471F-9C27-978162A6C1E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83E556F3-4FDD-4C60-A105-7044F20D8962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E556F3-4FDD-4C60-A105-7044F20D8962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E556F3-4FDD-4C60-A105-7044F20D8962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E556F3-4FDD-4C60-A105-7044F20D8962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68433A9-917E-4DFE-AC27-2E50ACC04FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68433A9-917E-4DFE-AC27-2E50ACC04FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68433A9-917E-4DFE-AC27-2E50ACC04FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68433A9-917E-4DFE-AC27-2E50ACC04FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95FD221-8010-4232-8427-457403A02471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95FD221-8010-4232-8427-457403A02471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95FD221-8010-4232-8427-457403A02471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95FD221-8010-4232-8427-457403A02471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5B9DE94-D3FF-471F-9C27-978162A6C1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B9DE94-D3FF-471F-9C27-978162A6C1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B9DE94-D3FF-471F-9C27-978162A6C1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B9DE94-D3FF-471F-9C27-978162A6C1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83E556F3-4FDD-4C60-A105-7044F20D8962} = {637701EE-2FEC-4A76-9B68-BC62C06F4C71}
+		{F68433A9-917E-4DFE-AC27-2E50ACC04FAB} = {134FAAEF-ABF2-4D5B-81D6-3DA2E56EDF1A}
+		{B95FD221-8010-4232-8427-457403A02471} = {C30E2367-95FD-44AB-B98D-380EB0692565}
+		{B5B9DE94-D3FF-471F-9C27-978162A6C1E8} = {5EF70A3C-B5EB-499E-BA18-F37C205EFD7E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17BF7D33-19E3-4E90-A27F-2AC0D261422D}
+	EndGlobalSection
+EndGlobal

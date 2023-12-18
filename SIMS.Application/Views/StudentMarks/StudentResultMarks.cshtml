@@ -1,0 +1,245 @@
+﻿@model SIMS.Core.ViewModel.OperationModule.MarksViewModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css" />
+<link href="~/Content/DataTables/css/jquery-ui.css" rel="stylesheet" />
+<style>
+        /* Add some CSS styles */
+        .form-control {
+            margin-bottom: 4px; /* Add margin for spacing between input fields */
+            margin-top: 4px; /* Add margin for spacing between input fields */
+        }
+    </style>
+
+@using (Html.BeginForm())
+{
+    
+	
+    @Html.AntiForgeryToken()
+    <div class="box box-success">
+        <div class="row">
+            <div class="box-body">
+                <div class="box-header with-border text-center"><h4 class="box-title text-info"><b>Examination Marks Calculations</b></h4></div>
+                <br />
+                <div class="col-md-3 col-sm-4">
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.ClassId, "Class Roll", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.ClassId, new { htmlAttributes = new { @class = "form-control", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger", @id = "ClassId" })
+	                </div>
+	                <div class="form-group" id="data">
+		                @Html.LabelFor(model => model.Bangla, "Bangla", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Bangla, new { htmlAttributes = new { @class = "form-control grade", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Bangla, "", new { @class = "text-danger", @id = "input_Bangla" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Bangla2, "Bangla-II", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Bangla2, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Bangla2, "", new { @class = "text-danger", @id = "input_Bangla2" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Math, "Math", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Math, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Math, "", new { @class = "text-danger", @id = "input_Math" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Science, "Science", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Science, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Science, "", new { @class = "text-danger", @id = "input_Science" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Accountiong, "Accounting", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Accountiong, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Accountiong, "", new { @class = "text-danger", @id = "input_Accountiong" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Economics, "Economics", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Economics, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Economics, "", new { @class = "text-danger", @id = "input_Economics" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Sociology, "Sociology", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Sociology, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Sociology, "", new { @class = "text-danger", @id = "input_Sociology" })
+	                </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+	                <div class="form-group">
+		                @Html.LabelFor(expression: model => model.DepartmentId, labelText: "Class *", htmlAttributes: new { @class = "control-label" })
+		                @Html.DropDownListFor(expression: c => c.DepartmentId, selectList: null, optionLabel: "", htmlAttributes: new { @class = "form-control", @tabindex = "" })
+		                @Html.ValidationMessageFor(expression: model => model.DepartmentId, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+	                </div>
+	                <div class="form-group" id="data">
+		                @Html.LabelFor(model => model.English, "English", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.English, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.English, "", new { @class = "text-danger", @id = "input_English" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.English2, "English-II", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.English2, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.English2, "", new { @class = "text-danger", @id = "input_English2" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.ICT, "ICT", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.ICT, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.ICT, "", new { @class = "text-danger", @id = "input_ICT" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Physics, "Physics", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Physics, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Physics, "", new { @class = "text-danger", @id = "input_Physics" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.FinanceBanking, "Finance Banking", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.FinanceBanking, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.FinanceBanking, "", new { @class = "text-danger", @id = "input_FinanceBanking" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.PoliticalScience, "PoliticalScience", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.PoliticalScience, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.PoliticalScience, "", new { @class = "text-danger", @id = "input_PoliticalScience" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.OptionalSubject, "Optional Subject", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.OptionalSubject, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.OptionalSubject, "", new { @class = "text-danger", @id = "input_OptionalSubject" })
+	                </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+	                <div class="form-group">
+		                @Html.LabelFor(expression: model => model.Section, labelText: "Section", htmlAttributes: new { @class = "control-label" })
+		                <select name="Section" id="Section" class="form-control" tabindex="">
+			                <option value=""></option>
+			                <option text="">Science</option>
+			                <option text="">Commerce</option>
+			                <option text="">Arts</option>
+		                </select>
+		                @Html.ValidationMessageFor(expression: model => model.Section, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+	                </div>
+	                <div class="form-group" id="data">
+		                @Html.LabelFor(model => model.GeneralScience, "General Science", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.GeneralScience, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.GeneralScience, "", new { @class = "text-danger", @id = "input_GeneralScience" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.SocialScience, "Social Science", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.SocialScience, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.SocialScience, "", new { @class = "text-danger", @id = "input_SocialScience" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.BnagladeshWorld, "Bangladesh & World", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.BnagladeshWorld, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.BnagladeshWorld, "", new { @class = "text-danger", @id = "input_BnagladeshWorld" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Chemistry, "Chemistry", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Chemistry, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Chemistry, "", new { @class = "text-danger", @id = "input_Chemistry" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.MathematicsStatistics, "Mathematics or Statistics", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.MathematicsStatistics, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.MathematicsStatistics, "", new { @class = "text-danger", @id = "input_MathematicsStatistics" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Geography, "Geography", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Geography, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Geography, "", new { @class = "text-danger", @id = "input_Geography" })
+	                </div>
+	                <div class="form-group">
+		                @Html.LabelFor(model => model.Grade, "Grade", htmlAttributes: new { @class = "control-label" })
+		                @Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control grade", @tabindex = "", } })
+		                @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger", @id = "Grade" })
+	                </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Session, "Session", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Session, new { htmlAttributes = new { @class = "form-control", @tabindex = "8", } })
+                        @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger", @id = "" })
+                    </div>
+                    <div class="form-group" id="data">
+                        @Html.LabelFor(model => model.IslamicStudies, "Islamic Studies & Other", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.IslamicStudies, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+                        @Html.ValidationMessageFor(model => model.IslamicStudies, "", new { @class = "text-danger", @id = "input_IslamicStudies" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AgricultureStudies, "Agriculture Studies", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.AgricultureStudies, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+                        @Html.ValidationMessageFor(model => model.AgricultureStudies, "", new { @class = "text-danger", @id = "input_AgricultureStudies" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Biology, "Biology", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Biology, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+                        @Html.ValidationMessageFor(model => model.Biology, "", new { @class = "text-danger", @id = "input_Biology" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HigherMath, "Higher Math", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.HigherMath, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+                        @Html.ValidationMessageFor(model => model.HigherMath, "", new { @class = "text-danger", @id = "input_HigherMath" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BusinessStudies, "Business Studies", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.BusinessStudies, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+                        @Html.ValidationMessageFor(model => model.BusinessStudies, "", new { @class = "text-danger", @id = "input_BusinessStudies" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.History, "History", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.History, new { htmlAttributes = new { @class = "form-control grade", type = "number", @tabindex = "", } })
+                        @Html.ValidationMessageFor(model => model.History, "", new { @class = "text-danger", @id = "input_History" })
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-8 col-lg-12">
+	                <div class="form-group">
+		                <button class="btn btn-primary" id="calculate" type="button"><span class="" aria-hidden="true"></span>Submit</button>
+		                <button id="checkFailure" class="btn btn-success" type="button"><span class="fa" aria-hidden="true"></span>Check Fail</button>
+		                <button class="btn btn-success" id="reset"><span class="fa fa-refresh" aria-hidden="true"></span> Reset</button>
+		                @*<button class="btn btn-warning" id="add" type="button"><span class="fa fa-plus-square" aria-hidden="true"></span> Add</button>*@
+	                </div>
+	                <div class="form-group">
+		                <div id="data"></div>
+		                <div id="Result"></div>
+	                </div>
+                </div>
+                <hr/>
+            </div>
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            @Html.HiddenFor(expression: c => c.Id)
+        </div>
+    </div>
+}
+<div class="box box-info">
+	<div class="box-header"><h5 class="box-title">Student Result List</h5></div>
+	<div class="box-body">
+		<table id="studentResultList" class="table table-bordered table-hover display nowrap col-md-6 col-sm-6" >
+			<thead>
+			<tr>
+				<th style="text-align: left">Class Roll</th>
+				<th style="text-align: left">Class</th>
+				<th style="text-align: left">Section</th>
+				<th style="text-align: left">Session</th>
+                <th style="text-align: left">Result</th>
+				<th style="text-align: center"></th>
+				<th style="text-align: center"></th>
+			</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/OperationModule/MarksEntryJavaScript.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+}

@@ -1,0 +1,68 @@
+﻿@model SIMS.Core.ReportModule.Report
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="col-md-12 col-sm-12">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">Students Report</div>
+                <div class="panel-body">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <br />
+                            @Html.RadioButtonFor(model => model.SimsReport, "AllStudent", htmlAttributes: new { @id = "AllStudent" }) All Student List<br/>
+
+                        </div>
+                    </div>
+                    @*<div class="col-md-6">
+                            <div class="form-group" id="indivisualHideShow">
+                                @Html.LabelFor(model => model.EmployeId, "Search By Employee Name...", htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.EmployeId, new { htmlAttributes = new { @class = "form-control", @id = "txtFindTrainee" } })
+                            </div>
+                            <div class="form-group" id="designationHideShow">
+                                @Html.LabelFor(model => model.DesignationId, "Designation", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownListFor(c => c.DesignationId, null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="form-group" id="departmentHideShow">
+                                @Html.LabelFor(model => model.DepartmentId, "Department", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownListFor(c => c.DepartmentId, null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group" id="PayslipCreateDateHideShow">
+                                <input type="month" id="PayslipCreateDate" class="form-control" value="" />
+                            </div>
+
+                            <div class="form-group" id="PayslipCreateStartDateHideShow">
+                                <lebel class="control-label">Start Date</lebel>
+                                <input type="Date" id="PayslipCreateStartDate" class="form-control" value="" />
+                            </div>
+                            <div class="form-group" id="PayslipCreateEndDateHideShow">
+                                <lebel class="control-label">End Date</lebel>
+                                <input type="Date" id="PayslipCreateEndDate" class="form-control" value="" />
+                            </div>
+
+
+                        </div>*@
+                    <input type="button" id="btnSimsReport" value="Report Run" class="btn btn-primary btn-block" />
+                    <a id="pdf" class="hidden" runat="server">click me</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section ViewSpecificJavascript
+{
+
+	<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="~/Scripts/jquery.fancybox.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js" integrity="sha512-RCgrAvvoLpP7KVgTkTctrUdv7C6t7Un3p1iaoPr1++3pybCyCsCZZN7QEHMZTcJTmcJ7jzexTO+eFpHk4OCFAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="~/Scripts/ReportModule/AllStudentReportJavaScript.js"></script>
+}

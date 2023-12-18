@@ -1,0 +1,174 @@
+﻿@model SIMS.Core.ViewModel.OperationModule.ResultInformationViewModel
+@{
+    ViewBag.Title = "ResultCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/DataTables/css/jquery-ui.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-12 col-sm-12" id="ResultEntriesForm">
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="box box-primary">
+                <div class="box-header with-border"><h5 class="box-title">Search</h5></div>
+                <div class="box-body">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <div class="input-group">
+                                        <input type="text" id="findStudentId" class="form-control" placeholder="Search By Student Id...">
+                                        <span class="input-group-addon btn btn-primary" id="btnSearch"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-lg-6 -->
+                            </div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row">
+	                        <div class="col-md-6 col-sm-6">
+		                        <div class="form-group">
+			                        @Html.LabelFor(model => model.Name, "Name", htmlAttributes: new { @class = "control-label" })
+			                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @id = "SearchName", @disabled = "disabled" } })
+		                        </div>
+	                        </div>
+	                        <div class="col-md-6 col-sm-6">
+		                        <div class="form-group">
+			                        @Html.LabelFor(model => model.PhoneNo, "Phone No", htmlAttributes: new { @class = "control-label" })
+			                        @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control", @id = "SearchPhoneNo", @disabled = "disabled" } })
+		                        </div>
+	                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="box-header with-border"><h4 class="box-title">Result Entry</h4></div>
+                            <div class="box-body">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.BoardRoll, "Board Roll", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.BoardRoll, new { htmlAttributes = new { @class = "form-control", @tabindex = "8", } })
+                                        @Html.ValidationMessageFor(model => model.BoardRoll, "", new { @class = "text-danger", @id = "" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DepartmentId, "Class *", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownListFor(c => c.DepartmentId, null, "", htmlAttributes: new { @class = "form-control", @tabindex = "" })
+                                        @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                                    </div>
+
+	                                <div class="form-group">
+		                                @Html.LabelFor(model => model.Result, "Result", htmlAttributes: new { @class = "control-label" })
+		                                @Html.EditorFor(model => model.Result, new { htmlAttributes = new { @class = "form-control", @tabindex = "6", } })
+		                                @Html.ValidationMessageFor(model => model.Result, "", new { @class = "text-danger", @id = "" })
+	                                </div>
+	                                <div class="form-group">
+		                                @Html.LabelFor(model => model.ActiveStatus, "Active Status", htmlAttributes: new { @class = "control-label" })
+		                                <select name="ActiveStatus" id="ActiveStatus" class="form-control" tabindex="">
+			                                <option value=""></option>
+			                                <option text="">Regular</option>
+			                                <option text="">IrrRegular</option>
+		                                </select>
+		                                @Html.ValidationMessageFor(model => model.ActiveStatus, "", new { @class = "text-danger" })
+	                                </div>
+	                                <div class="form-group">
+		                                @Html.LabelFor(model => model.Remark, "Remark", htmlAttributes: new { @class = "control-label" })
+		                                @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control", @tabindex = "10" } })
+		                                @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+	                                </div>
+                                    
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.RegistrationNo, "Registration No", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.RegistrationNo, new { htmlAttributes = new { @class = "form-control", @tabindex = "3", } })
+                                        @Html.ValidationMessageFor(model => model.RegistrationNo, "", new { @class = "text-danger", @id = "" })
+                                    </div>
+	                                <div class="form-group">
+		                                @Html.LabelFor(model => model.Session, "Session", htmlAttributes: new { @class = "control-label" })
+		                                @Html.EditorFor(model => model.Session, new { htmlAttributes = new { @class = "form-control", @tabindex = "5" } })
+		                                @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger", @id = "" })
+	                                </div>
+	                                <div class="form-group">
+		                                @Html.LabelFor(model => model.SubjectId, "Fail subject", htmlAttributes: new { @class = "control-label" })
+		                                @Html.EditorFor(model => model.SubjectId, new { htmlAttributes = new { @class = "form-control", @tabindex = "5" } })
+		                                @Html.ValidationMessageFor(model => model.SubjectId, "", new { @class = "text-danger", @id = "" })
+	                                </div>
+	                                <div class="form-group">
+		                                @Html.LabelFor(model => model.Section, "Section", htmlAttributes: new { @class = "control-label" })
+		                                <select name="ActiveStatus" id="Section" class="form-control" tabindex="">
+			                                <option value=""></option>
+			                                <option text="">Science</option>
+			                                <option text="">Commerce</option>
+			                                <option text="">Arts</option>
+		                                </select>
+		                                @Html.ValidationMessageFor(model => model.Section, "", new { @class = "text-danger" })
+	                                </div>
+	                                <div class="form-group">
+		                                @Html.LabelFor(expression: model => model.IsActive, labelText: "IsActive", htmlAttributes: new { @class = "control-label" })
+		                                <div class="checkbox">
+			                                @Html.EditorFor(expression: model => model.IsActive)
+			                                @Html.ValidationMessageFor(expression: model => model.IsActive, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+		                                </div>
+	                                </div>
+                                </div>
+                            </div>
+
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    @Html.HiddenFor(c => c.Id)
+                                    @Html.HiddenFor(c => c.StudentEntryId)
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnSubmit" value="SAVE" class="btn btn-primary btn-block" tabindex="11" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnRefresh" value="CLEAR" class="btn btn-secondary btn-block" tabindex="12" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnPrevious" value="Previous" class="btn btn-primary btn-block" tabindex="13" onclick="location.href='@Url.Action("StudentEntry", "StudentEntries")'" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnNext" value="Next" class="btn btn-success btn-block" tabindex="14" onclick="location.href='@Url.Action("StudentEntry", "StudentEntries")'" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="hidden" id="pageNumber" />
+                                        <input type="hidden" id="personalId" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">Student Result List</h5></div>
+            <div class="box-body">
+                <table id="StudentResultList" class="table table-bordered table-hover display nowrap" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">Student Id</th>
+                            <th style="text-align: center">Roll</th>
+                            <th style="text-align: center">Class</th>
+                            <th style="text-align: center">Fail Subject</th>
+                            <th style="text-align: center">Result</th>
+                            <th style="text-align: center"></th>
+                            <th style="text-align: center"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/OperationModule/resultEntriesJavaScript.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

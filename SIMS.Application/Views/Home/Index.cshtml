@@ -1,0 +1,82 @@
+﻿@model SIMS.Core.ViewModel.OperationModule.StudentEntryViewModel
+@{
+    ViewBag.Title = "Home";
+}
+@{
+    var mystyle = string.Concat("<style scoped> .tile_count .tile_stats_count {   padding: 4 10px 0 20px;    text-overflow: ellipsis;    overflow: hidden;    white-space: nowrap;    position: relative; width: 200px;} .tile_count .tile_stats_count .count {    font-size: 30px;    line-height: 47px;    font-weight: 600; } </style>");
+}
+
+@MvcHtmlString.Create(mystyle)
+<div class="row"></div>
+<div class="box box-info">
+	<div class="box-body">
+		<div class="col-md-12 col-sm-12">
+			<div class="tile_count">
+				<div class="col-md-2 col-sm-4  tile_stats_count">
+					<span class="count_top"><i class="fa fa-user"></i> Total Students</span>
+					<div class="count green">5</div>
+				</div>
+				<div class="col-md-2 col-sm-4  tile_stats_count">
+					<span class="count_top"><i class="fa fa-user"></i> Male Students</span>
+					<div class="count green">3</div>
+				</div>
+				<div class="col-md-2 col-sm-4  tile_stats_count">
+					<span class="count_top"><i class="fa fa-user"></i> Femals Students</span>
+					<div class="count green">2</div>
+				</div>
+				<div class="col-md-2 col-sm-4  tile_stats_count">
+					<span class="count_top"><i class="fa fa-university"></i> Total Class</span>
+					<div class="count green">10</div>
+
+				</div>
+				<div class="col-md-2 col-sm-4  tile_stats_count">
+					<span class="count_top"><i class="fa fa-book"></i> Total Subject</span>
+					<div class="count">25</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="box">
+    <div class="box-header with-border"><h5 class="box-title">Search Student</h5></div>
+    <div class="box-body">
+        <div class="col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <input type="text" id="SearchStudentName" class="form-control" placeholder="Search By SIMS Id...">
+                            <span class="input-group-addon btn btn-primary" id="btnSearch"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="form-group">
+                        @Html.LabelFor(expression: model => model.Name, labelText: "Name", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(expression: model => model.Name, additionalViewData: new { htmlAttributes = new { @class = "form-control", @id = "SearchName", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="form-group">
+                        @Html.LabelFor(expression: model => model.PhoneNo, labelText: "Phone No", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(expression: model => model.PhoneNo, additionalViewData: new { htmlAttributes = new { @class = "form-control", @id = "SearchPhoneNo", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="form-group">
+                        @Html.LabelFor(expression: model => model.Email, labelText: "Email", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(expression: model => model.Email, additionalViewData: new { htmlAttributes = new { @class = "form-control", @id = "SearchEmailId", @disabled = "disabled" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section ViewSpecificJavascript
+{
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+}

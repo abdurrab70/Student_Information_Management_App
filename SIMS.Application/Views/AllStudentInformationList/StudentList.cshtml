@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "StudentList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="box box-info">
+    <div class="box-header"><h5 class="box-title">Student Information List</h5></div>
+    <div class="box-body">
+        <table id="studentInformationList" class="table table-bordered table-hover display nowrap" style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="text-align: left">Student ID</th>
+                    <th style="text-align: left">Name</th>
+                    <th style="text-align: left">Phone No</th>
+                    <th style="text-align: left">Father Name</th>
+                    <th style="text-align: left">Mother Name</th>
+                    <th style="text-align: left">Department</th>
+                    <th style="text-align: left">Section</th>
+                    <th style="text-align: left">Gender</th>
+                    <th style="text-align: center">Status</th>
+                    <th style="text-align: center"></th>
+                    <th style="text-align: center"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+@*@Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="form-group col-md-2 col-sm-2">
+                <input type="button" id="btnPrevious" value="Previous" class="btn btn-primary btn-block" tabindex="13" onclick="location.href='@Url.Action("EducationCreate", "EducationInfos")'" />
+            </div>
+            <div class="form-group col-md-2 col-sm-2">
+                <input type="button" id="btnNext" value="Next" class="btn btn-success btn-block" tabindex="14" onclick="location.href='@Url.Action("EmploymentInformationCreate", "EmploymentInformations")'" />
+            </div>
+        </div>
+    </div>*@
+
+@*//link js file*@
+
+@section ViewSpecificJavascript
+{
+
+    <script src="~/Scripts/OperationModule/AllStudentListJavaScript.js"></script>
+}
